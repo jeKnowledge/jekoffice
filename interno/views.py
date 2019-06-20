@@ -7,10 +7,19 @@ import os
 from django.conf import settings
 from django.urls import path
 import docx
+from django.conf.urls.static import static
+from django.conf import settings
+
+
+
 
 def relatorio(request):
-    documento = docx.Document()
-    documento.add_paragraph('oi')
-    documento.save("oi.docx")
+    relatorio_path = os.getcwd() + settings.MEDIA_URL + '/relatorios'
+    aux_path = os.getcwd()
+    os.chdir(relatorio_path)
     print(os.getcwd())
-    return render(request,"home1.html",{})
+    # template = docx.Document("template.docx")
+# #
+#     pass
+    os.chdir(aux_path)
+    return render(request,"home123.html",{})

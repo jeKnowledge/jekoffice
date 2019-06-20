@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'gestao_salas', #salas
     'pwa',
     'phonenumber_field',
-    'projetos',
+    'interno',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser' #possivel autenticar atraves de custom users
