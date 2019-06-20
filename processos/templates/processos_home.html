@@ -1,0 +1,72 @@
+{%if request.user%}
+Ola, {{request.user.username}}
+<a href="/users/logout/" class="button">Logout</a>
+{%else%}
+Sessao por iniciar
+<a href="/users/login/" class="button">Login</a>
+<a href="/users/signup/" class="button">SignUp</a>
+{%endif%}
+
+<center>
+  <h1>
+    <face='Times New Roman'>Processos da jeKnowledge </face>
+  </h1>
+</center>
+
+<table>
+  <td>
+    <form type="get" action="search/" style="margin: 0" class="a">
+      <input id="search_box" type="text" name="search_box" placeholder="Procurar em TODOS...">
+      <button id="search_submit" type="submit" class="a">Submeter</button>
+    </form>
+  </td>
+  <td>
+    <a href="search/" class="button">Ver todos</a>
+  </td>
+</table>
+
+<table style="width:100%">
+  <tr>
+
+    <td>
+      <center>
+        <a href="tec/">
+          <img border="0" alt="TEC" src="https://i.ibb.co/zn8pPzD/JK-MRC-TEC.png" width="300" height="300">
+        </a>
+      </center>
+    </td>
+    <td>
+      <center>
+        <a href="ino/">
+          <img border="0" alt="INO" src="https://i.ibb.co/6JvB3dz/JK-MRC-INO.png" width="300" height="300">
+        </a>
+      </center>
+    </td>
+    <td>
+      <center>
+        <a href="int/">
+          <img border="0" alt="INT" src="https://i.ibb.co/PDbtKQB/JK-MRC-INT.png" width="300" height="300">
+        </a>
+      </center>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <center>
+        <h2>TECNOLOGIA</h2>
+      </center>
+    </td>
+    <td>
+      <center>
+        <h2>INOVAÇÃO</h2>
+      </center>
+    </td>
+    <td>
+      <center>
+        <h2 class='int'>INTERNO</h2>
+      </center>
+    </td>
+  </tr>
+</table>
+
+<br>

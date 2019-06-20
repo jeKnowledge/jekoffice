@@ -1,0 +1,8 @@
+
+Username:  {{request.user.username}}
+<br>
+Nome: {{request.user.first_name}} {{request.user.last_name}}
+{% if request.user.imagem %}
+<br>
+<img src="{{request.user.imagem.url}}" alt="" width="120" height="120">
+{% endif %}

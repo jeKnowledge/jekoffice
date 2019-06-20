@@ -1,0 +1,33 @@
+<style media="screen">
+  table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+<form class="search" action="." method="GET">
+  <input id="search_box" type="text" name="search_box" placeholder="Procurar...">
+  <button id="search_submit" type="submit">Submeter</button>
+</form>
+<br>
+
+{% if lista %}
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Departamento</th>
+  </tr>
+  {% for processo in lista %}
+  <tr>
+    <td>{{processo.nome}}</td>
+    <td>{{processo.departamento}}</td>
+    {% if processo.documento %}
+    <td><a  href="/processos/download/{{processo.pk}}/"> Download Processo {{processo.nome}} </a></td>
+    {% else %}
+    <td>Not found</td>
+    {% endif %}
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<h1>NAO HA PROCURAS</h1>
+{% endif %}
