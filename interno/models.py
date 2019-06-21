@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import CustomUser
+import datetime
 
 
 class Projetos(models.Model):
@@ -40,3 +41,26 @@ class Projetos(models.Model):
 # Orçamento final com o cliente (apenas preenchido quando ambas as partes concordarem)
 # Balanço financeiro(restrito a direcção, tesoureiro e membros gestores)
 # jeKbills
+
+
+class Relatorios_formacoes(models.Model):
+    pass
+
+class Relatorios_recrutamento(models.Model):
+    SEMESTRE_ESCOLHA = (("1º Semestre","1º Semestre"), ("2º Semestre","2º Semestre"))
+    ano = models.IntegerField(default = datetime.date.today().year)
+    semestre = models.CharField(max_length = 11, choices=SEMESTRE_ESCOLHA)
+    responsavel = models.ForeignKey(CustomUser,related_name="responsavel", on_delete=models.CASCADE,blank=True,null=True)
+    n_vagas_tec = models.IntegerField(default=0)
+    n_vagas_ino = models.IntegerField(default=0)
+    n_vagas_int = models.IntegerField(default=0)
+    n_candidatos = models.IntegerField(default=0)
+    n_grupos = models.IntegerField(default=0)
+    n_min_grupo = models.IntegerField(default=0)
+    n_max_grupo = models.IntegerField(default=0)
+    n_individual = models.IntegerField(default=0)
+    n_estagio = models.IntegerField(default=0)
+    n_admitidos = models.IntegerField(default=0)
+    documento = models.FileField(upload_to='relatorios/', null = True, blank = True)
+    def __str__(self):
+        return "Recrutamento %d - %s" %(self.ano,self.semestre)

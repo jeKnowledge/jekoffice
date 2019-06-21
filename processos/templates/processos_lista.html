@@ -1,8 +1,12 @@
+
+
 <style media="screen">
   table, th, td {
   border: 1px solid black;
 }
 </style>
+{% extends 'base.html' %}
+{%block content%}
 
 <form class="search" action="." method="GET">
   <input id="search_box" type="text" name="search_box" placeholder="Procurar...">
@@ -31,3 +35,4 @@
 {% else %}
 <h1>NAO HA PROCURAS</h1>
 {% endif %}
+{%endblock%}

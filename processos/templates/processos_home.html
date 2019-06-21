@@ -1,3 +1,6 @@
+
+{% extends 'base.html' %}
+{%block content%}
 {%if request.user%}
 Ola, {{request.user.username}}
 <a href="/users/logout/" class="button">Logout</a>
@@ -70,3 +73,4 @@ Sessao por iniciar
 </table>
 
 <br>
+{%endblock%}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{%block content%}
+<table>
+
+</table>
+{% if lista %}
+<table>
+  <tr>
+    <th>Semestre</th>
+    <th>Ano</th>
+  </tr>
+  {% for instance in lista %}
+  <tr>
+    <td>{{instance.semestre}}</td>
+    <td>{{instance.ano}}</td>
+    {% if instance.documento %}
+    <td><a  href="/interno/download/{{instance.pk}}/"> Download Relatorio {{processo.nome}} </a></td>
+    {% else %}
+    <td>Not found</td>
+    {% endif %}
+  </tr>
+  {% endfor %}
+</table>
+{%else%}
+{%endif%}
+{%endblock%}
