@@ -1,10 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponseNotFound,HttpResponse
+from django.shortcuts import render,redirect
+from django.http import HttpResponseNotFound,HttpResponse,HttpResponseRedirect
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.views.static import serve
+from django.urls import resolve,reverse
 import os
-from django.conf import settings
 import docx
 from .forms import RecrutamentoForm
 from .models import Relatorios_recrutamento
@@ -13,7 +13,6 @@ from users.models import CustomUser
 
 def relatorio_novo_view(request):
     my_form = RecrutamentoForm()
-
     doc = docx.Document()
     try:
         if request.method == 'POST':
@@ -30,6 +29,7 @@ def relatorio_novo_view(request):
                 print()
                 relatorio.documento.name = '/relatorios/' + 'Recrutamento' + str(relatorio.ano) +'-'+ relatorio.semestre[0] + '.docx'
                 relatorio.save()
+                return HttpResponseRedirect(reverse('criar_relatorios'))
     except:
         return HttpResponseNotFound('<h1>Error</h1>')
     return render(request,"recrutamento_novo.html",{'form':my_form})

@@ -28,7 +28,7 @@ class Projetos(models.Model):
     data_inicio     = models.DateField("Data Criação", auto_now=True)
     estado          = models.CharField("Estado", max_length = 15, choices = ESTADOS_CHOICES)
     data_fim        = models.DateField("Data Fim", auto_now=False,null=True,blank=True)
-    objectivo       = models.CharField("Objectivo", max_length = 8, choices = ESTADOS_CHOICES)
+    objectivo       = models.CharField("Objectivo", max_length = 8, choices = OBJETIVO_CHOICES)
 # Projectos
 # Nome
 # descrição
