@@ -3,15 +3,20 @@ from .models import Relatorios_recrutamento
 from users.models import CustomUser
 
 def USERS_CHOICES():
-    users = CustomUser.objects.all()
-    escolhas = None
-    for user in users:
-        tuplo = ((user.username,user.first_name + ' ' + user.last_name),)
-        try:
-            escolhas += tuplo
-        except:
-            escolhas = tuplo
-    return escolhas
+    try:
+        users = CustomUser.objects.all()
+        escolhas = (('NADA','NADA'),)
+        if users:
+            for user in users:
+                tuplo = ((user.username,user.first_name + ' ' + user.last_name),)
+                try:
+                    escolhas += tuplo
+                except:
+                    escolhas = tuplo
+            return escolhas
+    except:
+        return (('NADA','NADA'),)
+    return (('NADA','NADA'),)
 
 class RecrutamentoForm(forms.Form):
     SEMESTRE_ESCOLHA = (("1º Semestre","1º Semestre"), ("2º Semestre","2º Semestre"))
