@@ -6,9 +6,14 @@
   </head>
   <body>
     <ul>
+  {% if not user.is_authenticated %}
   <li><a href="/users/login/">Log in</a></li>
+  {% else %}
+  <li><a href="/users/logout/">Log out</a></li>
+  {% endif %}
   <li><a href="/">Home</a></li>
-  <li><a href="/users/profile/">Profile</a></li>
+  <li><a href="/users/{{request.user.username}}/">Profile</a></li>
+  <li><a href="/users/all/">Membros</a></li>
   <li><a href="/processos/">Processos</a></li>
   <li><a href="/interno/novo">Relatorio form</a></li>
   <li><a href="/interno/">Relatorio lista</a></li>

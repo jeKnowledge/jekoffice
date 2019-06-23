@@ -1,3 +1,6 @@
+{%extends 'base.html'%}
+{%block content%}
+
 
 Username:  {{request.user.username}}
 <br>
@@ -6,3 +9,8 @@ Nome: {{request.user.first_name}} {{request.user.last_name}}
 <br>
 <img src="{{request.user.imagem.url}}" alt="" width="120" height="120">
 {% endif %}
+<br><br>
+<a href="/users/edit">EDITAR PERFIL</a>
+<a href="/users/password">MUDAR PASSWORD</a>
+
+{%endblock%}

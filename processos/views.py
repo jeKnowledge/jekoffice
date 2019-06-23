@@ -38,11 +38,14 @@ def lista_procura_view(request, *args,**kargs):
 
 @login_required
 def download_processo_view(request,processo_pk,*args,**kargs):
-    object                = Processos.objects.get(pk=processo_pk)
-    file_path = object.documento.url[1:]
-    if os.path.exists(file_path):
-        with open(file_path, 'rb') as fh:
-            response      = HttpResponse(fh.read(), content_type="")
-            response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
-            return response
+    try:
+        object                = Processos.objects.get(pk=processo_pk)
+        file_path = object.documento.url[1:]
+        if os.path.exists(file_path):
+            with open(file_path, 'rb') as fh:
+                response      = HttpResponse(fh.read(), content_type="")
+                response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
+                return response
+    except:
+        pass
     return HttpResponseNotFound('<h1>Error</h1>')

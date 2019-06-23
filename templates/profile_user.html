@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{%block content%}
+
+
+Username:  {{user.username}}
+<br>
+Nome: {{user.first_name}} {{user.last_name}}
+{% if request.user.imagem %}
+<br>
+<img src="{{user.imagem.url}}" alt="" width="120" height="120">
+{% endif %}
+<br><br>
+{% ifequal request.user.username user.username%}
+<a href="/users/edit">EDITAR PERFIL</a>
+<a href="/users/password">MUDAR PASSWORD</a>
+{%endifequal%}
+
+{%endblock%}

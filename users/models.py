@@ -30,7 +30,6 @@ class CustomUser(AbstractUser):
                     ('INT','INT'),
                     )
 
-
     departamento    = models.CharField(choices = DEPARTAMENTOS_CHOICES, max_length = 3,null = True, blank = True)
     tipo_membro     = models.CharField(choices = MEMBRO_CHOICES, max_length= 5,null=True,blank = True)
     cargo           = models.CharField(choices = CARGOS_CHOICES, max_length = 20,null = True, blank = True)
@@ -38,7 +37,7 @@ class CustomUser(AbstractUser):
     telemovel       = PhoneNumberField(null=True, blank=True, unique=True, region='PT')
     cc_num          = models.IntegerField(null=True,blank=True)
     mac_adress      = models.CharField( max_length = 5,null = True, blank = True)
-    #projetos        = ManytoMany
+    projetos        = models.ManyToManyField('interno.Projetos',related_name="projetos",blank=True, null=True)
     imagem          = models.FileField(upload_to='users/%Y/%m/%d/', null = True, blank = True)
     #permissoes
     is_super   = models.BooleanField(default = False)

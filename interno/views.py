@@ -10,7 +10,7 @@ from .forms import RecrutamentoForm
 from .models import Relatorios_recrutamento
 from users.models import CustomUser
 
-
+@login_required
 def relatorio_novo_view(request):
     my_form = RecrutamentoForm()
     doc = docx.Document()
@@ -34,6 +34,7 @@ def relatorio_novo_view(request):
         return HttpResponseNotFound('<h1>Error</h1>')
     return render(request,"recrutamento_novo.html",{'form':my_form})
 
+@login_required
 def relatorio_lista_view(request):
     lista = Relatorios_recrutamento.objects.all()
     return render(request,"recrutamento_lista.html",{'lista':lista})

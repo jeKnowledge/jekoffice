@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{%block content%}
+
+{% for user in lista %}
+<a href="/users/{{user.username}}">{{user.username}}</a>
+<br>
+{% if user.imagem %}
+<img src="{{user.imagem.url}}" alt="imagem" width="100" height="100">
+{% endif %}
+<br><br>
+{% endfor %}
+{%endblock%}
