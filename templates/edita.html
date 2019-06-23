@@ -7,8 +7,11 @@
     <br>
     <br>
     {%endfor%}
-
+    {% if user.imagem %}
     <img src="{{user.imagem.url}}" alt="" height="250" width="250">
+    {%else%}
+    <img src="https://www.achievesuccesstutoring.com/wp-content/uploads/2019/05/no-photo-icon-22.jpg.png" alt="" height="250" width="250">
+    {%endif%}
     <br>
     <button type="submit">Guardar</button>
   </form>

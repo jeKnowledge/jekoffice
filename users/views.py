@@ -29,7 +29,9 @@ def altera_dados_view(request, *args, **kwargs):
     user = CustomUser.objects.get(pk=request.user.pk)
     data = {'username': request.user.username,'cc_num':request.user.cc_num,'email':request.user.email,'mac_adress':request.user.mac_adress}
     my_form = EditaForm(initial=data)
-    aux_path = user.imagem.path
+    aux_path = None
+    if(user.imagem):
+        aux_path = user.imagem.path
     if request.method == 'POST':
         my_form = EditaForm(request.POST, request.FILES,instance=user)
         if my_form.is_valid():
@@ -62,11 +64,10 @@ def change_password(request):
         'form': form
     })
 
-@login_required
 def mostra_view(request):
     query_set = CustomUser.objects.all()
     return render(request,'mostra_users.html',{'lista':query_set})
-@login_required
+
 def mostra_profile_view(request,username_slug):
     user = get_object_or_404(CustomUser, username=username_slug)
     return render(request,'profile_user.html',{'user':user})
