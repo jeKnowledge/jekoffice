@@ -1,3 +1,10 @@
-pip install Pillow
-pip install django-phonenumber-field
-pip install python-docx
+Babel==2.7.0
+Django==2.2.2
+django-phonenumber-field==3.0.1
+django-pwa==1.0.5
+lxml==4.3.4
+phonenumberslite==8.10.14
+Pillow==6.0.0
+python-docx==0.8.10
+pytz==2019.1
+sqlparse==0.3.0
