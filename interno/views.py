@@ -19,9 +19,6 @@ def relatorio_novo_view(request):
             my_form = RecrutamentoForm(request.POST)
             if my_form.is_valid():
                 dados_form = my_form.cleaned_data
-                responsavel = dados_form['responsavel']
-                user = CustomUser.objects.get(username = responsavel)
-                dados_form['responsavel'] = user
                 relatorio = Relatorios_recrutamento.objects.create(**dados_form)
                 for instance in dados_form:
                     doc.add_paragraph(str(dados_form[instance]))
