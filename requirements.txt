@@ -4,7 +4,7 @@ django-phonenumber-field==3.0.1
 django-pwa==1.0.5
 lxml==4.3.4
 phonenumberslite==8.10.14
-Pillow==6.0.0
+Pillow==6.2.0
 python-docx==0.8.10
 pytz==2019.1
 sqlparse==0.3.0
