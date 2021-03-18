@@ -1,5 +1,5 @@
 Babel==2.7.0
-Django==2.2.2
+Django==2.2.18
 django-phonenumber-field==3.0.1
 django-pwa==1.0.5
 lxml==4.3.4
